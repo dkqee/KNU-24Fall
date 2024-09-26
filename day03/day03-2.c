@@ -4,7 +4,7 @@ int main() {
 	int number;
 	int res;
 
-	printf("계산할 팩토리얼 값 입력 : ");
+	printf("팩토리얼 수를 입력하시오 : ");
 	scanf_s("%d", &number);
 
 	res = acc(number);
