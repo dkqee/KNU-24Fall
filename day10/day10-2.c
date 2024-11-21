@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+
 #define NAME_MAX 50
 
 enum rank 
