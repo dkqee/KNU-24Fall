@@ -2,54 +2,42 @@
 #include <math.h>
 
 double fx(double x) {
-	double value = 0;
-
-	value = sin(x) - log10(1 / x); 
-
-	return value;
+	return sin(x) - log10(1 / x);
 }
 
-double integral(double a, double b, int n) {
-	double result = 0;
-	double range = b -a, interv = 0;
-	double x = a;
+double calculate(double a, double b, int n)
+{
+	double range;
+	double x, result;
 
-
-	for (int j = 0; j <= n; j++) {
+	for (int i = 0; i <= n; i++)
+	{
 		x = a;
 		result = 0;
-		interv = range / pow(2, j);
+		range = (b - a) / pow(2, i);
 
-		for (int i = 1; i <= pow(2, j); i++) {
-			result += (fx(x) * interv);
-
-			x += interv;
-
+		for (int j = 1; j <= pow(2, i); j++)
+		{
+			x += range;
+			result += fx(x) * range;
 		}
-
-		printf("구간 : %10d | 적분 결과 : %10.6lf\n", (int)pow(2, j), result);
+		printf("구간 %10d 적분 결과: %lf\n", (int)pow(2, i), result);
 	}
-
-
-	return result;
 }
 
-
-int main() {
+int main()
+{
 	double a, b;
 	int n;
 
-	printf("시작값 입력 : ");
+	printf("적분할 시작 값을 입력하세요: ");
 	scanf_s("%lf", &a);
-
-	printf("끝값 입력 : ");
+	printf("적분할 끝 값을 입력하세요: ");
 	scanf_s("%lf", &b);
-
-
-	printf("최대 구간 입력 (2^n) : ");
+	printf("시행할 최대 구간을 입력하세요(2^n): ");
 	scanf_s("%d", &n);
 
-	integral(a, b, n);
+	calculate(a, b, n);
 
 	return 0;
 }
