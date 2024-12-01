@@ -20,7 +20,6 @@ int solution(int topping[], size_t topping_len) {
     }
 
     for (int i = 0; i < topping_len - 1; i++) {
-
         int top = topping[i];
         left_topping[top]++;
         if (left_topping[top] == 1) {
